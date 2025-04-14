@@ -24,6 +24,7 @@ target_metadata = None
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
+config.set_main_option('sqlalchemy.url', 'sqlite:////home/gslin/.config/test-alembic/default.sqlite')
 
 
 def run_migrations_offline() -> None:
