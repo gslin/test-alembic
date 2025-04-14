@@ -1,4 +1,5 @@
 from logging.config import fileConfig
+import os
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
@@ -24,7 +25,9 @@ target_metadata = None
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
-config.set_main_option('sqlalchemy.url', 'sqlite:////home/gslin/.config/test-alembic/default.sqlite')
+
+# set sqlite database to ~/.config/test-alembic/default.sqlite
+config.set_main_option('sqlalchemy.url', 'sqlite:///' + os.path.expanduser('~/.config/test-alembic/default.sqlite'))
 
 
 def run_migrations_offline() -> None:
